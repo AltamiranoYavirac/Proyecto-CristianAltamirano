@@ -45,81 +45,87 @@ class HomeTab extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final double cardHeight = (constraints.maxHeight - 60) / 2;
-        final double cardWidth = (constraints.maxWidth - 32) / 2;
+        final double cardWidth = (constraints.maxWidth - 96) / 2;
 
-        return Column(
-          children: [
-            const SizedBox(height: 10),
-            const Text(
-              'Bienvenido a GamingRoutesApp',
-              style: TextStyle(
-                fontFamily: 'Gamer',
-                fontSize: 18,
-                color: Colors.cyanAccent,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Wrap(
-                  spacing: 16,
-                  runSpacing: 16,
-                  alignment: WrapAlignment.center,
-                  children: items
-                      .map((item) => SizedBox(
-                            width: cardWidth,
-                            height: cardHeight,
-                            child: InkWell(
-                              borderRadius: BorderRadius.circular(20),
-                              onTap: () {
-                                Navigator.pushNamed(context, item['route'] as String);
-                              },
-                              child: AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFF1A1C2C),
+        return Center(
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              children: [
+                const SizedBox(height: 10),
+                const Text(
+                  'Bienvenido a GamingRoutesApp',
+                  style: TextStyle(
+                    fontFamily: 'Gamer',
+                    fontSize: 18,
+                    color: Colors.cyanAccent,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 10),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Wrap(
+                      spacing: 16,
+                      runSpacing: 16,
+                      alignment: WrapAlignment.center,
+                      children: items
+                          .map((item) => SizedBox(
+                                width: cardWidth,
+                                height: cardHeight,
+                                child: InkWell(
                                   borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(color: const Color(0xFF00FF90), width: 2),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: (item['color'] as Color).withOpacity(0.3),
-                                      blurRadius: 10,
-                                      spreadRadius: 2,
-                                      offset: const Offset(0, 4),
-                                    ),
-                                  ],
-                                ),
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(12),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Icon(item['icon'] as IconData, size: 80, color: item['color'] as Color),
-                                        const SizedBox(height: 12),
-                                        Text(
-                                          item['title'] as String,
-                                          style: const TextStyle(
-                                            fontFamily: 'Gamer',
-                                            fontSize: 14,
-                                            color: Colors.white,
-                                          ),
-                                          textAlign: TextAlign.center,
+                                  onTap: () {
+                                    Navigator.pushNamed(context, item['route'] as String);
+                                  },
+                                  child: AnimatedContainer(
+                                    duration: const Duration(milliseconds: 200),
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFF1A1C2C),
+                                      borderRadius: BorderRadius.circular(20),
+                                      border: Border.all(color: const Color(0xFF00FF90), width: 2),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: (item['color'] as Color).withOpacity(0.3),
+                                          blurRadius: 10,
+                                          spreadRadius: 2,
+                                          offset: const Offset(0, 4),
                                         ),
                                       ],
                                     ),
+                                    child: Center(
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(item['icon'] as IconData, size: 80, color: item['color'] as Color),
+                                            const SizedBox(height: 12),
+                                            Text(
+                                              item['title'] as String,
+                                              style: const TextStyle(
+                                                fontFamily: 'Gamer',
+                                                fontSize: 14,
+                                                color: Colors.white,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                          ))
-                      .toList(),
+                              ))
+                          .toList(),
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         );
       },
     );
@@ -171,7 +177,7 @@ class DescripcionTab extends StatelessWidget {
       padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-            buildBox('Nombre del Proyecto', 'GamingRoutesApp'),
+          buildBox('Nombre del Proyecto', 'Mi App Gamer'),
           buildBox(
             'Objetivo General',
             'Brindar a los usuarios una experiencia retro interactiva que centralice juegos, ranking, tienda y eventos.',

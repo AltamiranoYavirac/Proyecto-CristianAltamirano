@@ -9,46 +9,51 @@ class JuegosScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Juegos'),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Icon(Icons.videogame_asset, size: 80, color: Colors.cyanAccent),
-            const SizedBox(height: 20),
-            const Text(
-              'Sección de Juegos',
-              style: TextStyle(
-                fontFamily: 'Gamer',
-                fontSize: 18,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 500),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Icon(Icons.videogame_asset, size: 80, color: Colors.cyanAccent),
+                const SizedBox(height: 20),
+                const Text(
+                  'Sección de Juegos',
+                  style: TextStyle(
+                    fontFamily: 'Gamer',
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Aquí se mostrará contenido informativo sobre los juegos disponibles, estilos, géneros y más.',
+                  style: TextStyle(
+                    fontFamily: 'Gamer',
+                    fontSize: 14,
+                    color: Colors.white,
+                    height: 1.6,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 30),
+                _buildGameCard(
+                  imageUrl: 'https://cdn-icons-png.flaticon.com/512/8832/8832119.png',
+                  title: 'Aventura Épica',
+                  description: 'Explora mundos mágicos y enfrenta desafíos únicos en este juego de aventura retro.',
+                ),
+                const SizedBox(height: 20),
+                _buildGameCard(
+                  imageUrl: 'https://cdn-icons-png.flaticon.com/512/3500/3500833.png',
+                  title: 'Batalla Espacial',
+                  description: 'Enfréntate en el espacio con gráficos pixel y una banda sonora al estilo arcade.',
+                ),
+              ],
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'Aquí se mostrará contenido informativo sobre los juegos disponibles, estilos, géneros y más.',
-              style: TextStyle(
-                fontFamily: 'Gamer',
-                fontSize: 14,
-                color: Colors.white,
-                height: 1.6,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 30),
-            _buildGameCard(
-              imageUrl: 'https://cdn-icons-png.flaticon.com/512/8832/8832119.png',
-              title: 'Aventura Épica',
-              description: 'Explora mundos mágicos y enfrenta desafíos únicos en este juego de aventura retro.',
-            ),
-            const SizedBox(height: 20),
-            _buildGameCard(
-              imageUrl: 'https://cdn-icons-png.flaticon.com/512/3500/3500833.png',
-              title: 'Batalla Espacial',
-              description: 'Enfréntate en el espacio con gráficos pixel y una banda sonora al estilo arcade.',
-            ),
-          ],
+          ),
         ),
       ),
     );
