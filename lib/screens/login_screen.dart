@@ -10,7 +10,19 @@ class LoginScreen extends StatelessWidget {
     final TextEditingController passController = TextEditingController();
 
     const inputDecoration = InputDecoration(
-      labelStyle: TextStyle(color: Colors.white),
+      labelStyle: TextStyle(
+        color: Colors.cyanAccent,
+        fontFamily: 'Gamer',
+        fontSize: 14,
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.cyanAccent),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.white),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
+      ),
     );
 
     return Scaffold(
@@ -32,7 +44,6 @@ class LoginScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 30),
 
-            // Imagen local
             ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.asset(
