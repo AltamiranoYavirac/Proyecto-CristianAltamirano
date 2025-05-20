@@ -9,46 +9,51 @@ class EventosScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Eventos Gamer'),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Icon(Icons.event, size: 80, color: Colors.cyanAccent),
-            const SizedBox(height: 20),
-            const Text(
-              'Próximos Torneos y Reuniones',
-              style: TextStyle(
-                fontFamily: 'Gamer',
-                fontSize: 18,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 500),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Icon(Icons.event, size: 80, color: Colors.cyanAccent),
+                const SizedBox(height: 20),
+                const Text(
+                  'Próximos Torneos y Reuniones',
+                  style: TextStyle(
+                    fontFamily: 'Gamer',
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Infórmate sobre las fechas, lugares y temáticas de los próximos eventos gamer en tu comunidad.',
+                  style: TextStyle(
+                    fontFamily: 'Gamer',
+                    fontSize: 14,
+                    color: Colors.white,
+                    height: 1.6,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 30),
+                _buildEventCard(
+                  imageUrl: 'https://cdn-icons-png.flaticon.com/512/2885/2885333.png',
+                  title: 'Torneo Retro Clash',
+                  description: 'Sábado 10 de agosto - Batallas 1v1 con juegos de los 80s. ¡Premios y diversión garantizada!',
+                ),
+                const SizedBox(height: 20),
+                _buildEventCard(
+                  imageUrl: 'https://cdn-icons-png.flaticon.com/512/3845/3845829.png',
+                  title: 'Convención Gamer Andina',
+                  description: 'Domingo 24 de agosto - Reunión de comunidades con cosplay, demos y torneos abiertos.',
+                ),
+              ],
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'Infórmate sobre las fechas, lugares y temáticas de los próximos eventos gamer en tu comunidad.',
-              style: TextStyle(
-                fontFamily: 'Gamer',
-                fontSize: 14,
-                color: Colors.white,
-                height: 1.6,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 30),
-            _buildEventCard(
-              imageUrl: 'https://cdn-icons-png.flaticon.com/512/2885/2885333.png',
-              title: 'Torneo Retro Clash',
-              description: 'Sábado 10 de agosto - Batallas 1v1 con juegos de los 80s. ¡Premios y diversión garantizada!',
-            ),
-            const SizedBox(height: 20),
-            _buildEventCard(
-              imageUrl: 'https://cdn-icons-png.flaticon.com/512/3845/3845829.png',
-              title: 'Convención Gamer Andina',
-              description: 'Domingo 24 de agosto - Reunión de comunidades con cosplay, demos y torneos abiertos.',
-            ),
-          ],
+          ),
         ),
       ),
     );

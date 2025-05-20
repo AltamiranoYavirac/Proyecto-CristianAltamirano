@@ -9,46 +9,51 @@ class TiendaScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Tienda Gamer'),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Icon(Icons.storefront, size: 80, color: Colors.cyanAccent),
-            const SizedBox(height: 20),
-            const Text(
-              'Explora Productos Exclusivos',
-              style: TextStyle(
-                fontFamily: 'Gamer',
-                fontSize: 18,
-                color: Colors.white,
-              ),
-              textAlign: TextAlign.center,
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 500),
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Icon(Icons.storefront, size: 80, color: Colors.cyanAccent),
+                const SizedBox(height: 20),
+                const Text(
+                  'Explora Productos Exclusivos',
+                  style: TextStyle(
+                    fontFamily: 'Gamer',
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  'Encuentra artículos retro, accesorios gamer, ropa temática y más en esta tienda pensada para la comunidad.',
+                  style: TextStyle(
+                    fontFamily: 'Gamer',
+                    fontSize: 14,
+                    color: Colors.white,
+                    height: 1.6,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 30),
+                _buildProductCard(
+                  imageUrl: 'https://cdn-icons-png.flaticon.com/512/3334/3334336.png',
+                  title: 'Camisa Retro Gamer',
+                  description: 'Estilo pixel con estampados de consola clásica. Tallas desde S hasta XL.',
+                ),
+                const SizedBox(height: 20),
+                _buildProductCard(
+                  imageUrl: 'https://cdn-icons-png.flaticon.com/512/4274/4274843.png',
+                  title: 'Mouse Neon RGB',
+                  description: 'Precisión para gaming con luces LED y diseño ergonómico.',
+                ),
+              ],
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'Encuentra artículos retro, accesorios gamer, ropa temática y más en esta tienda pensada para la comunidad.',
-              style: TextStyle(
-                fontFamily: 'Gamer',
-                fontSize: 14,
-                color: Colors.white,
-                height: 1.6,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 30),
-            _buildProductCard(
-              imageUrl: 'https://cdn-icons-png.flaticon.com/512/3334/3334336.png',
-              title: 'Camisa Retro Gamer',
-              description: 'Estilo pixel con estampados de consola clásica. Tallas desde S hasta XL.',
-            ),
-            const SizedBox(height: 20),
-            _buildProductCard(
-              imageUrl: 'https://cdn-icons-png.flaticon.com/512/4274/4274843.png',
-              title: 'Mouse Neon RGB',
-              description: 'Precisión para gaming con luces LED y diseño ergonómico.',
-            ),
-          ],
+          ),
         ),
       ),
     );
